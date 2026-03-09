@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>QR — Next Semester</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: #080808;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    .card {
+      background: #080808;
+      border: 2px solid #c0392b;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      width: 340px;
+    }
+
+    .top-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      color: #c0392b;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .title {
+      font-size: 3.5rem;
+      color: #f5c518;
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.3rem;
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.5);
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #f5f0e8;
+      letter-spacing: 0.2em;
+      margin-bottom: 1.8rem;
+    }
+
+    #qrcode {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.8rem;
+    }
+
+    #qrcode canvas, #qrcode img {
+      border: 8px solid #f5f0e8;
+    }
+
+    .scan-label {
+      font-size: 0.9rem;
+      letter-spacing: 0.25em;
+      color: #f5f0e8;
+      margin-bottom: 0.5rem;
+    }
+
+    .date {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      color: #c0392b;
+    }
+
+    .red-rule {
+      width: 40px;
+      height: 2px;
+      background: #c0392b;
+      margin: 1.2rem auto;
+    }
+
+    @media print {
+      body { background: white; }
+      .card { 
+        border-color: #c0392b;
+        background: white;
+      }
+      .title { color: #c0392b; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .top-label, .date { color: #c0392b; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .scan-label, .subtitle { color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <p class="top-label">Scan to open</p>
+    <div class="title">Felicidades<br>Ingeniero</div>
+    <div class="subtitle">Heiner Herrera</div>
+    <div id="qrcode"></div>
+    <div class="red-rule"></div>
+    <p class="scan-label">Escanea el código</p>
+    <p class="date">Graduación · 19 · 03 · 2026</p>
+  </div>
+
+  <script>
+    new QRCode(document.getElementById("qrcode"), {
+      text: "https://nexform28.github.io/nextsemester/",
+      width: 220,
+      height: 220,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  </script>
+</body>
+</html>
